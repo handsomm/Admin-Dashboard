@@ -53,7 +53,10 @@ const Sidebar = () => {
     }, [])
 
     return (
-        <Box sx={{
+        <Box marginRight={isCollapsed ? '80px' : '270px'} style={{ transition: 'all 0.2s ease-in-out' }} sx={{
+            "& .pro-sidebar": {
+                position: 'fixed',
+            },
             "& .pro-sidebar-inner": {
                 background: `${colors.primary[400]} !important`
             },
@@ -71,9 +74,9 @@ const Sidebar = () => {
             //     position:"fixed",
             //     width:'270px'
             // },
-            "& .pro-sidebar.collapsed": {
-                width: '50px'
-            }
+            // "& .pro-sidebar.collapsed": {
+            //     width: '50px'
+            // }
         }} >
             <ProSidebar collapsed={isCollapsed} id='sidebar' height='100vh'>
                 <Menu iconShape='square'>

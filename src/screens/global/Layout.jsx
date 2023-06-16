@@ -11,12 +11,12 @@ const Layout = () => {
     const userId = localStorage.getItem('userId')
 
     const userUrl = `http://localhost:5000/users?id=${userId}`
-
     const fetchUserData = async () => {
         return await axios.get(userUrl).then(res => {
             setUser(res.data)
         })
     }
+
 
     useEffect(() => {
         fetchUserData();
@@ -28,7 +28,7 @@ const Layout = () => {
                 {user.type === 'admin' ? (
                     <>
                         <Sidebar />
-                        <main className='content' id='content'>
+                        <main className='content' id='content' >
                             <TopBar />
                             <Outlet />
                         </main>

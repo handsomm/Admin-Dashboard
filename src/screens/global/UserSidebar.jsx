@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { tokens } from '../../theme';
 import 'react-pro-sidebar/dist/css/styles.css'
 import { ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
@@ -35,7 +35,10 @@ const UserSidebar = () => {
     const [isCollapsed, setIsCollapsed] = useState(false)
     const [selected, setSelected] = useState('Profile')
     return (
-        <Box sx={{
+        <Box marginRight={isCollapsed ? '80px' : '270px'} style={{ transition: 'all 0.2s ease-in-out' }} sx={{
+            "& .pro-sidebar": {
+                position: 'fixed',
+            },
             "& .pro-sidebar-inner": {
                 background: `${colors.primary[400]} !important`
             },
@@ -53,9 +56,9 @@ const UserSidebar = () => {
             //     position:"fixed",
             //     width:'270px'
             // },
-            "& .pro-sidebar.collapsed": {
-                width: '50px'
-            }
+            // "& .pro-sidebar.collapsed": {
+            //     width: '50px'
+            // }
         }} >
             <ProSidebar collapsed={isCollapsed} id='sidebar' height='100vh'>
                 <Menu iconShape='square'>
